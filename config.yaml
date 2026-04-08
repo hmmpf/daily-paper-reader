@@ -25,3 +25,65 @@ subscriptions:
     stage: A
     diff_threshold_pct: 15
   keyword_recall_mode: or
+  intent_profiles:
+    - tag: 扩散流控
+      description: 查找扩散模型，流匹配，可控生成相关的论文
+      enabled: true
+      paper_sources:
+        - arxiv
+      keywords:
+        - keyword: diffusion models
+          keyword_cn: 扩散模型
+          query: diffusion models for generative tasks
+        - keyword: flow matching
+          keyword_cn: 流匹配
+          query: flow matching techniques in generative modeling
+        - keyword: controllable generation
+          keyword_cn: 可控生成
+          query: controllable generation methods in machine learning
+        - keyword: stochastic differential equations
+          keyword_cn: 随机微分方程
+          query: stochastic differential equations in generative processes
+        - keyword: conditional generation
+          keyword_cn: 条件生成
+          query: conditional generative models with control mechanisms
+        - keyword: generative modeling
+          keyword_cn: 生成建模
+          query: generative modeling techniques and frameworks
+      intent_queries:
+        - query: diffusion models with flow matching for controllable generation
+          query_cn: 用于可控生成的流匹配扩散模型
+          enabled: true
+          source: manual
+          note: ''
+        - query: controllable generative models using diffusion and flow methods
+          query_cn: 使用扩散和流方法的可控生成模型
+          enabled: true
+          source: manual
+          note: ''
+        - query: 智能体在商务场景中的应用研究
+          query_cn: 智能体在商务场景中的应用研究
+          enabled: true
+          source: manual
+          note: ''
+        - query: 多智能体协作在商务流程中的优化
+          query_cn: 多智能体协作在商务流程中的优化
+          enabled: true
+          source: manual
+          note: ''
+      updated_at: '2026-04-08T06:47:36.225Z'
+source_backends:
+  arxiv:
+    papers_table: arxiv_papers
+    use_vector_rpc: true
+    vector_rpc: match_arxiv_papers
+    vector_rpc_exact: match_arxiv_papers_exact
+    use_bm25_rpc: true
+    bm25_rpc: match_arxiv_papers_bm25
+    sync_table: arxiv_sync_status
+    sync_success_value: success
+    schema: public
+    kind: supabase
+    enabled: true
+    url: https://lyucdwgefyfbmaiopjbk.supabase.co
+    anon_key: sb_publishable_lX-oi64Uxyd7SIVv3_w2Uw_MTOojeKq
